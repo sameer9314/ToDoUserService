@@ -117,7 +117,7 @@ public class UserServiceImpl implements UserService {
 			repository.save(user);
 			logger.info(messages.get("107"));
 			String subject = "Account Confirmation Link";
-			String body = "Click the link given below to activate your account \n\n " + ipaddress + "/user/activationlink/?"
+			String body = "Click the link given below to activate your account \n\n " + ipaddress + "/user/user/activationlink/?"
 					+ validToken;
 			String to = user.getEmail();
 
@@ -150,7 +150,6 @@ public class UserServiceImpl implements UserService {
 						validToken=redis.getToken(user.get().getId());
 						logger.info(messages.get("110")+ email);
 						return validToken;
-					
 					}
 					logger.error(messages.get("111"));
 					throw new Exception(messages.get("111"));
@@ -158,7 +157,7 @@ public class UserServiceImpl implements UserService {
 					logger.error(messages.get("112"));
 					throw new Exception(messages.get("112"));
 				}
-			}
+			} 
 			logger.error(messages.get("113"));
 			throw new Exception(messages.get("113"));
 		}
@@ -200,7 +199,7 @@ public class UserServiceImpl implements UserService {
 			if (user.isPresent()) {
 				String validToken = token.generator(user.get());
 				String subject = messages.get("120");
-				String body = "Click the link given below reset your password \n\n " + ipaddress + "/resetpassword/?"
+				String body = "Click the link given below reset your password \n\n " + ipaddress + "/user/user/resetpassword/?"
 						+ validToken;
 				String to = user.get().getEmail();
 				sender.send(subject, body, to);
@@ -229,6 +228,5 @@ public class UserServiceImpl implements UserService {
 		dbUser.get().setStatus("true");
 		repository.save(dbUser.get());
 	}
-	
 	
 }

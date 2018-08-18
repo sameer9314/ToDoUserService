@@ -11,7 +11,7 @@ import org.springframework.core.io.Resource;
  * @version  1.0
  * @Since  31/07/2018
  */
-@Configuration
+/*@Configuration
 public class ToDoConfig {
      @Bean
       public static PropertySourcesPlaceholderConfigurer propertyConfigurer() {
@@ -23,7 +23,6 @@ public class ToDoConfig {
         // get active profile
         activeProfile = System.getProperty("spring.profiles.active");
       
-     
         // choose different property files for different active profile
         if ("development".equals(activeProfile)) {
           resource = new ClassPathResource("/META_INF/application_development.properties");
@@ -41,4 +40,4 @@ public class ToDoConfig {
         
         return propertySourcesPlaceholderConfigurer;
       }
-    }
+    }*/
